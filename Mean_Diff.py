@@ -45,8 +45,10 @@ print(boot2_lower, boot2_upper)
 fig, ax = plt.subplots()
 ax.set_title(f'{confidence_input} Confidence Limits on Means of {array1_name} and {array2_name}')
 ax.set_ylabel('Mean')
-ax.axes.xaxis.set_visible(False)
-ax.xlabels = ['Array1', 'Array2']
+x = [1, 2]
+my_xticks = [array1_name, array2_name]
+plt.xticks(x, my_xticks)
+
 # array1
 ax.vlines(1, array1.min(), array1.max(), color='b', alpha=.2)
 ax.hlines(array1.mean(), 1-(array1.size/total), 1+(array1.size/total), color='b')
