@@ -43,12 +43,13 @@ print(boot2_lower, boot2_upper)
 fig, ax = plt.subplots()
 # array1
 ax.vlines(1, array1.min(), array1.max(), color='b')
-ax.hlines(array1.mean(), 1, 2, color='b')
+ax.hlines(array1.mean(), 1-(array1.size/total), 1+(array1.size/total), color='b')
 ax.hlines(boot1_lower, 1, 2, color='b')
 ax.hlines(boot1_upper, 1, 2, color='b')
 
 # array2
 ax.vlines(2, array2.min(), array2.max(), color='y')
+ax.hlines(array2.mean(), 1-(array2.size/total), 1+(array2.size/total), color='b')
 ax.hlines(boot2_lower, 1, 2, color='y')
 ax.hlines(boot2_upper, 1, 2, color='y')
 
