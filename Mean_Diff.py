@@ -42,7 +42,7 @@ print(boot2_lower, boot2_upper)
 fig, ax = plt.subplots()
 ax.xlabels = ['Array1', 'Array2']
 # array1
-ax.vlines(1, array1.min(), array1.max(), color='b')
+ax.vlines(1, array1.min(), array1.max(), color='b', alpha=.2)
 ax.hlines(array1.mean(), 1-(array1.size/total), 1+(array1.size/total), color='b')
 ax.hlines(boot1_lower, 1-(array1.size/total), 1+(array1.size/total), color='b')
 ax.hlines(boot1_upper, 1-(array1.size/total), 1+(array1.size/total), color='b')
@@ -52,7 +52,7 @@ else:
     ax.hlines(boot1_upper, 1, 2, color='b', linestyles='dotted')
 
 # array2
-ax.vlines(2, array2.min(), array2.max(), color='y')
+ax.vlines(2, array2.min(), array2.max(), color='y', alpha=.2)
 ax.hlines(array2.mean(), 2-(array2.size/total), 2+(array2.size/total), color='y')
 ax.hlines(boot2_lower, 2-(array2.size/total), 2+(array2.size/total), color='y')
 ax.hlines(boot2_upper, 2-(array2.size/total), 2+(array2.size/total), color='y')
