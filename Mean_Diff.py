@@ -16,7 +16,6 @@ def Means_of_Boots(array):
 
 def Confid_Levels(array, confidence):
     boot = Means_of_Boots(array)
-    plt.hist(boot)
     boot_lower = np.percentile(boot, confidence*100/2)
     boot_upper = np.percentile(boot, 100-confidence*100/2)
     return boot_lower, boot_upper
@@ -24,8 +23,8 @@ def Confid_Levels(array, confidence):
 
 # define 2 arrays
 # these will in the future be supplied by users
-array1 = np.random.randint(6, 18, 100)
-array2 = np.random.randint(8, 22, 100)
+array1 = np.random.randint(6, 18, 120)
+array2 = np.random.randint(8, 22, 150)
 confidence = .05  # this is the alpha you wish to test
 total = array1.size + array2.size
 
@@ -41,6 +40,7 @@ print(boot2_lower, boot2_upper)
 
 # plot these
 fig, ax = plt.subplots()
+ax.xlabels = ['Array1', 'Array2']
 # array1
 ax.vlines(1, array1.min(), array1.max(), color='b')
 ax.hlines(array1.mean(), 1-(array1.size/total), 1+(array1.size/total), color='b')
