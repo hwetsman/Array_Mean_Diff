@@ -27,7 +27,8 @@ array1 = np.random.randint(6, 18, 120)
 array1_name = 'Array 1'
 array2 = np.random.randint(8, 22, 150)
 array2_name = 'Array 2'
-confidence = .05  # this is the alpha you wish to test
+confidence_input = .95  # this is the alpha you wish to test
+confidence = round(1-confidence_input, 2)
 total = array1.size + array2.size
 
 # define means
@@ -42,7 +43,7 @@ print(boot2_lower, boot2_upper)
 
 # plot these
 fig, ax = plt.subplots()
-ax.title(f'Means and {confidence} levels for {array1_name} and {array2_name}')
+ax.set_title(f'{confidence_input} Confidence Limits on Means of {array1_name} and {array2_name}')
 ax.xlabels = ['Array1', 'Array2']
 # array1
 ax.vlines(1, array1.min(), array1.max(), color='b', alpha=.2)
