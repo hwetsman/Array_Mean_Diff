@@ -11,3 +11,5 @@ The present project aims to provide a quick, easy to use visual identifier for o
 ## Use
 One would input their own arrays, the confidence interval they want to use, and then run the script. The output is a pyplot graphic showing the min, max, mean, and required confidence intervals. If these intervals overlap, the two means cannot be said to be different enough to meet the confidence intervals wished for. If the confidence intervals do not overlap, the means are sufficiently different to show that the null can be rejected.
 
+## To Do
+I want to pretty up the graph using seaborn and perhaps improve the shape of the graphic. Also inputs for the user's arrays and confidence intervals would be good.
