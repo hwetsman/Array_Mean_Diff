@@ -75,7 +75,7 @@ ax.hlines(boot2_upper, 2-(array2.size/total), 2+(array2.size/total), color='y')
 # fill rectangle
 height = boot2_upper-boot2_lower
 width = 2*array2.size/total
-origin = (1-(array2.size/total), boot2_lower)
+origin = (2-(array2.size/total), boot2_lower)
 rect2 = patches.Rectangle(origin, width, height, linewidth=1,
                           edgecolor='y', facecolor='lightyellow')
 ax.add_patch(rect2)
