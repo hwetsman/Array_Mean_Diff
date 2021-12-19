@@ -59,8 +59,7 @@ ax.hlines(boot1_upper, 1-(array1.size/total), 1+(array1.size/total), color='b')
 height = boot1_upper-boot1_lower
 width = 2*array1.size/total
 origin = (1-(array1.size/total), boot1_lower)
-rect1 = patches.Rectangle(origin, width, height, linewidth=1, edgecolor='b', facecolor='none')
-# (x, y), width, height
+rect1 = patches.Rectangle(origin, width, height, linewidth=1, edgecolor='b', facecolor='lightblue')
 ax.add_patch(rect1)
 
 if array1.mean() > array2.mean():
@@ -73,6 +72,13 @@ ax.vlines(2, array2.min(), array2.max(), color='y', alpha=.2)
 ax.hlines(array2.mean(), 2-(array2.size/total), 2+(array2.size/total), color='y')
 ax.hlines(boot2_lower, 2-(array2.size/total), 2+(array2.size/total), color='y')
 ax.hlines(boot2_upper, 2-(array2.size/total), 2+(array2.size/total), color='y')
+# fill rectangle
+height = boot2_upper-boot2_lower
+width = 2*array2.size/total
+origin = (2-(array2.size/total), boot2_lower)
+rect2 = patches.Rectangle(origin, width, height, linewidth=1,
+                          edgecolor='y', facecolor='lightyellow')
+ax.add_patch(rect2)
 if array2.mean() > array1.mean():
     ax.hlines(boot2_lower, 1, 2, color='y', linestyles='dotted')
 else:
