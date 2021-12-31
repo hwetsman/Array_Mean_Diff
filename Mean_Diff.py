@@ -1,4 +1,11 @@
-
+"""
+Author: Howard Wetsman MD
+Purpose: To give users a quick, intuitive view of a comparison of two, possibly
+overlapping, samples' data.
+Inputs: Two arrays of numbers
+Output: Image of the overlap or lack of overlap of the 95% confidence levels
+from those arrays
+"""
 
 import pandas as pd
 import numpy as np
@@ -7,6 +14,12 @@ import matplotlib.patches as patches
 
 
 def Means_of_Boots(array):
+    """
+    Function to bootstrap an array 10K times and return an array of the mean of
+    each of those bootstraps
+    Input: np.array - an array of sample data
+    Output: np.array - an array of 10000 means of bootstrapped samples
+    """
     boot = []
     for _ in range(10000):
         bootsample = np.random.choice(array, array.size, replace=True)
@@ -16,6 +29,14 @@ def Means_of_Boots(array):
 
 
 def Confid_Levels(array, confidence):
+    """
+    This will take the confidence levels calculated from user input alpha and the bootstrap
+    array and return the desired confidence levels upper and lower for plotting
+    Input: np.array and float - Takes the float of 1-alpha and the array of bootstrapped
+    means of the input array
+    Output: float, float - The upper and lower confidence levels for the
+    plot of the bootstraps
+    """
     boot = Means_of_Boots(array)
     boot_lower = np.percentile(boot, confidence*100/2)
     boot_upper = np.percentile(boot, 100-confidence*100/2)
