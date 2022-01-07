@@ -9,7 +9,9 @@ It is common when dealing with a sample from a population to calculate the mean.
 The present project aims to provide a quick, easy to use visual identifier for overlap of confidence intervals.
 
 ## Use
-To use this app, clone the repo. Then insert the csv of your choice (with headers on first line) in the Data directory and remove the Sample.csv. One would input their own arrays, the confidence interval they want to use, and then run the script. The output is a pyplot graphic showing the min, max, mean, and required confidence intervals. If these intervals overlap, the two means cannot be said to be different enough to meet the confidence intervals wished for. If the confidence intervals do not overlap, the means are sufficiently different to show that the null can be rejected.
+To use this app, clone the repo. Then insert the csv of your choice (with headers on first line) in the Data directory and remove the Sample.csv. Run `pip install -r requirements.txt` from the directory containing the app. Then from the terminal, cd to the app directory and run `streamlit run Mean_Diff.py`.
+
+From the sliders on the sidebar, select the confidence interval you want to use and the columns of your dataframe that you wish to compare. The output is a pyplot graphic showing the min, max, mean, and required confidence intervals. If these confidence intervals overlap, the two means cannot be said to be different enough to reject the null hypothesis that the means are the same. If the confidence intervals do not overlap, the means are sufficiently different to show that the null can be rejected.
 
 ## To Do
-I want to pretty up the graph using seaborn and perhaps improve the shape of the graphic. Also inputs for the user's arrays and confidence intervals would be good.
+I want to pretty up the graph using seaborn and perhaps improve the shape of the graphic. 
