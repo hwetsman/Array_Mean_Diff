@@ -43,9 +43,13 @@ def Confid_Levels(array, confidence):
     boot_upper = np.percentile(boot, 100-confidence*100/2)
     return boot_lower, boot_upper
 
+
 # Refactor to Streamlit
-# create better sample data with multiple cols
+# create better sample data with multiple cols - done
 # read sample data to csv
+df = pd.read_csv('Data/Sample.csv')
+cols = df.columns.tolist()
+print(cols)
 # choose cols to be displayed
 # set up user choice of cols
 # display results on streamlit
