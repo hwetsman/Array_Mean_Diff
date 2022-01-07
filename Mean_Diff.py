@@ -52,8 +52,12 @@ cols = df.columns.tolist()
 print(cols)
 # choose cols to be displayed
 array1_name = st.sidebar.select_slider('Select for first array', cols)
-array2_name = st.sidebar.select_slider('Select for first array', cols)
+array2_name = st.sidebar.select_slider('Select for second array', cols)
 # set up user choice of cols
+array1 = df[array1_name]
+array2 = df[array2_name]
+print(array1)
+print(array2)
 # display results on streamlit
 
 
