@@ -64,7 +64,7 @@ array2 = np.array(df[array2_name])
 # display results on streamlit
 confidence_input = st.sidebar.slider(
     'Select your confidence interval', min_value=.01, max_value=1.0, value=.95)
-# confidence_input = .95  # this is the alpha you wish to test
+
 confidence = round(1-confidence_input, 2)
 total = array1.size + array2.size
 
