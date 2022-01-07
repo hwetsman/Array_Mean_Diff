@@ -11,7 +11,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
-import streamlit
+import streamlit as st
 
 
 def Means_of_Boots(array):
@@ -51,6 +51,8 @@ df = pd.read_csv('Data/Sample.csv')
 cols = df.columns.tolist()
 print(cols)
 # choose cols to be displayed
+array1_name = st.sidebar.select_slider('Select for first array', cols)
+array2_name = st.sidebar.select_slider('Select for first array', cols)
 # set up user choice of cols
 # display results on streamlit
 
