@@ -7,15 +7,16 @@ Output: Image of the overlap or lack of overlap of the 95% confidence levels
 from those arrays
 """
 
+import seaborn as sns
+import streamlit as st
+import matplotlib.patches as patches
+import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
-import streamlit as st
-import seaborn as sns
-from matplotlib.pyplot import figure
 import matplotlib
 matplotlib.use('TkAgg')
+# from matplotlib.pyplot import figure
+
 pd.options.mode.chained_assignment = None
 
 
@@ -55,8 +56,8 @@ def Confid_Levels(array, confidence):
 df = pd.read_csv('Data/Sample.csv')
 cols = df.columns.tolist()
 # choose cols to be displayed
-array1_name = st.sidebar.select_slider('Select for first array', cols)
-array2_name = st.sidebar.select_slider('Select for second array', cols)
+array1_name = st.sidebar.select_slider('Select for first array', cols, value=cols[0])
+array2_name = st.sidebar.select_slider('Select for second array', cols, value=cols[1])
 # set up user choice of cols
 array1 = np.array(df[array1_name])
 array2 = np.array(df[array2_name])
