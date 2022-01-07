@@ -12,6 +12,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import streamlit as st
+import seaborn as sns
+from matplotlib.pyplot import figure
+import matplotlib
+matplotlib.use('TkAgg')
+pd.options.mode.chained_assignment = None
 
 
 def Means_of_Boots(array):
@@ -49,31 +54,31 @@ def Confid_Levels(array, confidence):
 # read sample data to csv
 df = pd.read_csv('Data/Sample.csv')
 cols = df.columns.tolist()
-print(cols)
 # choose cols to be displayed
 array1_name = st.sidebar.select_slider('Select for first array', cols)
 array2_name = st.sidebar.select_slider('Select for second array', cols)
 # set up user choice of cols
-array1 = df[array1_name]
-array2 = df[array2_name]
-print(array1)
-print(array2)
+array1 = np.array(df[array1_name])
+array2 = np.array(df[array2_name])
+
 # display results on streamlit
 
 
 # define 2 arrays
 # these will in the future be supplied by users
-array1 = np.random.randint(6, 18, 120)
-array1_name = 'Array 1'
-array2 = np.random.randint(8, 22, 150)
-array2_name = 'Array 2'
+# array1 = np.random.randint(6, 18, 120)
+# array1_name = 'Array 1'
+# array2 = np.random.randint(8, 22, 150)
+# array2_name = 'Array 2'
 confidence_input = .95  # this is the alpha you wish to test
 confidence = round(1-confidence_input, 2)
 total = array1.size + array2.size
 
 # define means
 mean1 = array1.mean()
+print(mean1)
 mean2 = array2.mean()
+print(mean2)
 
 # create bootstraps and confidence levels
 boot1_lower, boot1_upper = Confid_Levels(array1, confidence)
