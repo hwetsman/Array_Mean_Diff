@@ -15,7 +15,6 @@ import pandas as pd
 import numpy as np
 import matplotlib
 matplotlib.use('TkAgg')
-# from matplotlib.pyplot import figure
 
 pd.options.mode.chained_assignment = None
 
