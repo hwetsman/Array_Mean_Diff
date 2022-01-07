@@ -128,4 +128,5 @@ if array2.mean() > array1.mean():
     ax.hlines(boot2_lower, 1, 2, color='y', linestyles='dotted')
 else:
     ax.hlines(boot2_upper, 1, 2, color='y', linestyles='dotted')
-plt.show()
+# plt.show()
+st.pyplot(fig)
