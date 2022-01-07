@@ -50,27 +50,19 @@ def Confid_Levels(array, confidence):
     return boot_lower, boot_upper
 
 
-# Refactor to Streamlit
-# create better sample data with multiple cols - done
 # read sample data to csv
 df = pd.read_csv('Data/Sample.csv')
 cols = df.columns.tolist()
+
 # choose cols to be displayed
 array1_name = st.sidebar.select_slider('Select for first array', cols, value=cols[0])
 array2_name = st.sidebar.select_slider('Select for second array', cols, value=cols[1])
+
 # set up user choice of cols
 array1 = np.array(df[array1_name])
 array2 = np.array(df[array2_name])
 
 # display results on streamlit
-
-
-# define 2 arrays
-# these will in the future be supplied by users
-# array1 = np.random.randint(6, 18, 120)
-# array1_name = 'Array 1'
-# array2 = np.random.randint(8, 22, 150)
-# array2_name = 'Array 2'
 confidence_input = .95  # this is the alpha you wish to test
 confidence = round(1-confidence_input, 2)
 total = array1.size + array2.size
@@ -100,6 +92,7 @@ ax.vlines(1, array1.min(), array1.max(), color='b', alpha=.2)
 ax.hlines(array1.mean(), 1-(array1.size/total), 1+(array1.size/total), color='b')
 ax.hlines(boot1_lower, 1-(array1.size/total), 1+(array1.size/total), color='b')
 ax.hlines(boot1_upper, 1-(array1.size/total), 1+(array1.size/total), color='b')
+
 # fill rectangle
 height = boot1_upper-boot1_lower
 width = 2*array1.size/total
@@ -117,6 +110,7 @@ ax.vlines(2, array2.min(), array2.max(), color='y', alpha=.2)
 ax.hlines(array2.mean(), 2-(array2.size/total), 2+(array2.size/total), color='y')
 ax.hlines(boot2_lower, 2-(array2.size/total), 2+(array2.size/total), color='y')
 ax.hlines(boot2_upper, 2-(array2.size/total), 2+(array2.size/total), color='y')
+
 # fill rectangle
 height = boot2_upper-boot2_lower
 width = 2*array2.size/total
@@ -128,5 +122,4 @@ if array2.mean() > array1.mean():
     ax.hlines(boot2_lower, 1, 2, color='y', linestyles='dotted')
 else:
     ax.hlines(boot2_upper, 1, 2, color='y', linestyles='dotted')
-# plt.show()
 st.pyplot(fig)
