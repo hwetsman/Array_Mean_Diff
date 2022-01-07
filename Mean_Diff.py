@@ -44,8 +44,9 @@ def Confid_Levels(array, confidence):
     plot of the bootstraps
     """
     boot = Means_of_Boots(array)
-    boot_lower = np.percentile(boot, confidence*100/2)
-    boot_upper = np.percentile(boot, 100-confidence*100/2)
+    boot_lower = np.percentile(boot, confidence*100)
+    boot_upper = np.percentile(boot, 100-confidence*100)
+    print(boot, boot_lower, boot_upper, confidence)
     return boot_lower, boot_upper
 
 
@@ -65,7 +66,8 @@ array2 = np.array(df[array2_name])
 confidence_input = st.sidebar.slider(
     'Select your confidence interval', min_value=.01, max_value=1.0, value=.95)
 
-confidence = round(1-confidence_input, 2)
+confidence = round(1-confidence_input/2, 2)
+print(confidence)
 total = array1.size + array2.size
 
 # define means
